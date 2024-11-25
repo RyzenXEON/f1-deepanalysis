@@ -5,7 +5,6 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-# Enable the cache for FastF1
 fastf1.Cache.enable_cache('cache')
 
 @app.route('/')
@@ -16,7 +15,6 @@ def index():
 def get_circuits():
     year = request.args.get('year', default=2024, type=int)
     
-    # Get schedule for the selected year
     schedule = fastf1.get_event_schedule(year)
     circuits = [
         {
